@@ -11,7 +11,7 @@ ASCII_CHARS = '@%#*+=-:.'
 
 def resize_image(image, new_width=200):
     width, height = image.size
-    ratio = height / width / 1.65
+    ratio = height / width / 1.70
     new_height = int(new_width * ratio)
     resized_image = image.resize((new_width, new_height))
     return resized_image
@@ -44,12 +44,12 @@ def convert_frames_to_ascii(video_path, frame_interval, width):
             resized_image = resize_image(image, width)
             # 将图像转换为字符画
             ascii_str = image_to_ascii(resized_image)
-            time.sleep(1/30*(0.19))
+            time.sleep(1/30*(0.37))
             os.system("clear")
             # 输出字符画到终端
             for i in range(len(ascii_str) //width):
-                print(ascii_str[i*width:(i+1)*width])
-
+                print(ascii_str[i*width:(i+1)*width], end="")
+                print(ascii_str[i*width:(i+1)*width][::-1])
 
         frame_count += 1
 
@@ -64,6 +64,6 @@ if __name__ == "__main__":
 
     video_path = "./video/badapple.mp4"  # 输入视频文件路径
     frame_interval = 1  # 抽帧间隔，每隔30帧抽取一帧
-    width = 245
+    width = 122
     play_audio(video_path)
     convert_frames_to_ascii(video_path, frame_interval, width)

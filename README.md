@@ -1,3 +1,10 @@
+# 如何安装依赖
+1. 安装[poetry](https://python-poetry.org/docs/)
+2. 在项目根目录下执行
+```bash
+poetry install
+```
+
 # 视频转字符画输出
 1. 将需要转成字符画的视频放到`./video/`目录下
 2. 在terminal输入`python main.py`启动
